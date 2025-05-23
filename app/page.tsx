@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle, Clock, BarChart, Users } from "lucide-react"
+import { ArrowRight, CheckCircle, Clock, BarChart, Users, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
@@ -47,11 +47,15 @@ export default function Home() {
             <Button
               variant="outline"
               className="hidden md:flex border-white/70 bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 text-base px-6 py-6 shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all duration-300"
+              asChild
             >
-              Log In
+              <Link href="/login">Log In</Link>
             </Button>
-            <Button className="bg-white text-blue-700 hover:bg-blue-50 text-base px-6 py-6 shadow-[0_0_20px_rgba(255,255,255,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.8)] transition-all duration-300">
-              Get Started
+            <Button
+              className="bg-white text-blue-700 hover:bg-blue-50 text-base px-6 py-6 shadow-[0_0_20px_rgba(255,255,255,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.8)] transition-all duration-300"
+              asChild
+            >
+              <Link href="/signup">Get Started</Link>
             </Button>
           </div>
         </div>
@@ -377,16 +381,16 @@ export default function Home() {
                       viewBox="0 0 32 32"
                       aria-hidden="true"
                     >
-                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L25.864 4z" />
                     </svg>
-                    <p className="text-xl text-blue-100 mb-6 text-glow-sm">
-                      "TrueClaim Intel has revolutionized our claims department. We've reduced processing time by 75%
-                      while improving accuracy. Our customers are happier, and our adjusters can focus on complex cases
-                      that truly need human expertise."
+                    <p className="text-lg md:text-xl mb-6">
+                      TrueClaim has revolutionized our claims processing. What used to take weeks now takes minutes, and
+                      our customer satisfaction scores have increased by 47%. The AI-powered fraud detection has saved
+                      us millions.
                     </p>
                     <div>
-                      <h4 className="font-bold text-white text-xl text-glow-md">Sarah Johnson</h4>
-                      <p className="text-blue-200 text-lg text-glow-sm">CIO at National Insurance</p>
+                      <p className="font-semibold">Sarah Johnson</p>
+                      <p className="text-blue-200">CIO at National Insurance</p>
                     </div>
                   </div>
                 </div>
@@ -395,102 +399,269 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section
-          id="contact"
-          className="py-20 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-            <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-blue-400/20 mix-blend-overlay blur-3xl animate-pulse"></div>
-            <div
-              className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-blue-300/20 mix-blend-overlay blur-3xl animate-pulse"
-              style={{ animationDelay: "1s" }}
-            ></div>
+        {/* Statistics Section */}
+        <section className="py-20 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="font-montserrat text-3xl font-bold tracking-tight text-blue-800 sm:text-4xl drop-shadow-[0_0_10px_rgba(30,64,175,0.3)]">
+                TrueClaim by the Numbers
+              </h2>
+              <p className="mt-4 text-lg text-blue-700">
+                Our platform is transforming the insurance industry with proven results.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="bg-blue-50 p-8 rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-blue-100 flex flex-col items-center text-center hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="text-4xl font-bold text-blue-600 mb-2">80%</div>
+                <p className="text-blue-700">Faster Claims Processing</p>
+              </div>
+              <div className="bg-blue-50 p-8 rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-blue-100 flex flex-col items-center text-center hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="text-4xl font-bold text-blue-600 mb-2">99.8%</div>
+                <p className="text-blue-700">Fraud Detection Accuracy</p>
+              </div>
+              <div className="bg-blue-50 p-8 rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-blue-100 flex flex-col items-center text-center hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="text-4xl font-bold text-blue-600 mb-2">47%</div>
+                <p className="text-blue-700">Increase in Customer Satisfaction</p>
+              </div>
+              <div className="bg-blue-50 p-8 rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] border border-blue-100 flex flex-col items-center text-center hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="text-4xl font-bold text-blue-600 mb-2">$2.5M</div>
+                <p className="text-blue-700">Average Annual Savings</p>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="container relative px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div className="space-y-6">
-                <h2 className="font-montserrat text-3xl font-bold tracking-tight text-white sm:text-4xl text-glow-lg">
-                  Ready to Transform Your Claims Process?
-                </h2>
-                <p className="text-xl text-blue-100 text-glow-sm">
-                  Join the 200+ insurance companies already benefiting from TrueClaim Intel. Schedule a demo today and
-                  see the difference for yourself.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-white text-blue-700 hover:bg-blue-50 h-14 px-8 text-lg shadow-[0_0_25px_rgba(255,255,255,0.6)] hover:shadow-[0_0_35px_rgba(255,255,255,0.8)] transition-all duration-300 hover:scale-105">
-                    Schedule Demo
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="border-white text-white hover:bg-blue-700/50 h-14 px-8 text-lg shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:scale-105"
-                  >
-                    Contact Sales
+        {/* Case Studies Section */}
+        <section className="py-20 bg-blue-50">
+          <div className="container px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="font-montserrat text-3xl font-bold tracking-tight text-blue-800 sm:text-4xl drop-shadow-[0_0_10px_rgba(30,64,175,0.3)]">
+                Success Stories
+              </h2>
+              <p className="mt-4 text-lg text-blue-700">
+                See how leading insurance companies have transformed their claims processing with TrueClaim.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] overflow-hidden hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+                    alt="National Insurance Case Study"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">National Insurance</h3>
+                  <p className="text-blue-600 mb-4">
+                    Reduced claims processing time by 85% and saved $3.2M annually in operational costs.
+                  </p>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full">
+                    Read Case Study
                   </Button>
                 </div>
               </div>
-              <div className="bg-white p-8 rounded-2xl shadow-[0_0_40px_rgba(255,255,255,0.4)] glow-blue-animate">
-                <h3 className="text-2xl font-bold text-blue-700 mb-6 drop-shadow-[0_0_10px_rgba(30,64,175,0.3)]">
-                  Get in Touch
+              <div className="bg-white rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] overflow-hidden hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop"
+                    alt="Global Protect Case Study"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">Global Protect</h3>
+                  <p className="text-blue-600 mb-4">
+                    Improved fraud detection by 76% and increased customer satisfaction scores by 42%.
+                  </p>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full">
+                    Read Case Study
+                  </Button>
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl shadow-[0_0_30px_rgba(37,99,235,0.3)] overflow-hidden hover:shadow-[0_0_40px_rgba(37,99,235,0.5)] transition-all duration-300 hover:scale-[1.02]">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2149&auto=format&fit=crop"
+                    alt="SecureLife Case Study"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">SecureLife</h3>
+                  <p className="text-blue-600 mb-4">
+                    Automated 92% of claims processing and reduced operational costs by 35%.
+                  </p>
+                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 w-full">
+                    Read Case Study
+                  </Button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-12 text-center">
+              <Button className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-6 text-lg">
+                View All Case Studies
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="font-montserrat text-3xl font-bold tracking-tight text-blue-800 sm:text-4xl drop-shadow-[0_0_10px_rgba(30,64,175,0.3)]">
+                Frequently Asked Questions
+              </h2>
+              <p className="mt-4 text-lg text-blue-700">
+                Find answers to common questions about TrueClaim and our services.
+              </p>
+            </div>
+            <div className="max-w-3xl mx-auto space-y-6">
+              <div className="bg-blue-50 rounded-xl p-6 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <h3 className="text-xl font-bold text-blue-700 mb-2">How does TrueClaim's AI work?</h3>
+                <p className="text-blue-600">
+                  Our AI analyzes thousands of data points from claim documents, policy information, and historical data
+                  to verify claims, detect fraud, and determine appropriate settlements. The system continuously learns
+                  and improves from each processed claim.
+                </p>
+              </div>
+              <div className="bg-blue-50 rounded-xl p-6 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <h3 className="text-xl font-bold text-blue-700 mb-2">How long does implementation take?</h3>
+                <p className="text-blue-600">
+                  Most clients are fully operational within 4-6 weeks. Our implementation team works closely with your
+                  IT department to ensure a smooth integration with your existing systems and processes.
+                </p>
+              </div>
+              <div className="bg-blue-50 rounded-xl p-6 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <h3 className="text-xl font-bold text-blue-700 mb-2">
+                  Is TrueClaim compliant with industry regulations?
                 </h3>
-                <form className="space-y-4">
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <label htmlFor="first-name" className="text-sm font-medium text-gray-700">
+                <p className="text-blue-600">
+                  Yes, TrueClaim is fully compliant with all relevant insurance regulations, including GDPR, HIPAA, and
+                  state-specific insurance requirements. Our compliance team continuously monitors regulatory changes to
+                  ensure ongoing compliance.
+                </p>
+              </div>
+              <div className="bg-blue-50 rounded-xl p-6 shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+                <h3 className="text-xl font-bold text-blue-700 mb-2">
+                  Can TrueClaim integrate with our existing systems?
+                </h3>
+                <p className="text-blue-600">
+                  Yes, TrueClaim is designed to integrate seamlessly with all major insurance management systems and can
+                  be customized to work with proprietary systems. We provide comprehensive API documentation and
+                  integration support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="py-20 bg-gradient-to-b from-blue-600 to-blue-500">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+              <div>
+                <h2 className="font-montserrat text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6 text-glow-lg">
+                  Ready to Transform Your Claims Process?
+                </h2>
+                <p className="text-xl text-blue-100 mb-8 text-glow-sm">
+                  Contact us today to schedule a demo and see how TrueClaim can revolutionize your insurance claims
+                  processing.
+                </p>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-blue-200">Email</p>
+                      <p className="text-lg font-medium text-white">info@trueclaim.com</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-blue-200">Phone</p>
+                      <p className="text-lg font-medium text-white">+1 (800) 555-1234</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-blue-200">Address</p>
+                      <p className="text-lg font-medium text-white">123 Business Avenue, Chicago, IL 60601</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl shadow-[0_0_40px_rgba(255,255,255,0.4)] border border-white/20">
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2" htmlFor="first-name">
                         First name
                       </label>
                       <input
+                        className="w-full rounded-md border-white/30 bg-white/10 text-white placeholder-blue-200 focus:border-white focus:ring-white"
                         id="first-name"
-                        className="flex h-12 w-full rounded-md border border-blue-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-[0_0_10px_rgba(37,99,235,0.2)] focus:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
                         placeholder="John"
+                        type="text"
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="last-name" className="text-sm font-medium text-gray-700">
+                    <div>
+                      <label className="block text-sm font-medium text-white mb-2" htmlFor="last-name">
                         Last name
                       </label>
                       <input
+                        className="w-full rounded-md border-white/30 bg-white/10 text-white placeholder-blue-200 focus:border-white focus:ring-white"
                         id="last-name"
-                        className="flex h-12 w-full rounded-md border border-blue-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-[0_0_10px_rgba(37,99,235,0.2)] focus:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
                         placeholder="Doe"
+                        type="text"
                       />
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                  <div>
+                    <label className="block text-sm font-medium text-white mb-2" htmlFor="email">
                       Email
                     </label>
                     <input
+                      className="w-full rounded-md border-white/30 bg-white/10 text-white placeholder-blue-200 focus:border-white focus:ring-white"
                       id="email"
-                      type="email"
-                      className="flex h-12 w-full rounded-md border border-blue-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-[0_0_10px_rgba(37,99,235,0.2)] focus:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
                       placeholder="john.doe@example.com"
+                      type="email"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-gray-700">
+                  <div>
+                    <label className="block text-sm font-medium text-white mb-2" htmlFor="company">
                       Company
                     </label>
                     <input
+                      className="w-full rounded-md border-white/30 bg-white/10 text-white placeholder-blue-200 focus:border-white focus:ring-white"
                       id="company"
-                      className="flex h-12 w-full rounded-md border border-blue-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-[0_0_10px_rgba(37,99,235,0.2)] focus:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
-                      placeholder="Insurance Co."
+                      placeholder="Insurance Inc."
+                      type="text"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                  <div>
+                    <label className="block text-sm font-medium text-white mb-2" htmlFor="message">
                       Message
                     </label>
                     <textarea
+                      className="w-full rounded-md border-white/30 bg-white/10 text-white placeholder-blue-200 focus:border-white focus:ring-white"
                       id="message"
-                      className="flex min-h-[120px] w-full rounded-md border border-blue-200 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-[0_0_10px_rgba(37,99,235,0.2)] focus:shadow-[0_0_15px_rgba(37,99,235,0.4)]"
-                      placeholder="Tell us about your needs..."
-                    />
+                      placeholder="How can we help you?"
+                      rows={4}
+                    ></textarea>
                   </div>
-                  <Button className="w-full bg-blue-600 text-white hover:bg-blue-700 h-12 text-lg shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all duration-300">
+                  <Button className="w-full bg-white text-blue-700 hover:bg-blue-50 py-6">
                     Send Message
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </form>
               </div>
@@ -500,109 +671,81 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-gray-900 to-blue-700 text-white py-12 shadow-[0_0_30px_rgba(30,64,175,0.3)]">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center mb-12">
-            <div className="bg-white p-4 rounded-xl inline-block mb-6 shadow-[0_0_30px_rgba(255,255,255,0.5)] glow-blue-animate">
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A__2_-removebg-preview-ZabQoiu2niiPHLJlKWKnvBDhqIBgyh.png"
-                alt="TrueClaim Logo"
-                className="h-24 w-auto drop-shadow-[0_0_15px_rgba(37,99,235,0.6)]"
-              />
-            </div>
-            <p className="text-lg text-blue-200 max-w-2xl text-center text-glow-sm">
-              Transforming insurance claims processing with efficiency, accuracy, and customer satisfaction.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <footer className="py-12 w-full bg-blue-800 text-white">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="font-bold mb-6 text-xl text-white text-glow-md">Company</h3>
-              <ul className="space-y-4">
+              <div className="bg-white p-3 rounded-lg inline-block mb-4">
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A__2_-removebg-preview-ZabQoiu2niiPHLJlKWKnvBDhqIBgyh.png"
+                  alt="TrueClaim Logo"
+                  className="h-16 w-auto"
+                />
+              </div>
+              <p className="text-blue-100 text-sm">
+                Transforming insurance claims processing with efficiency, accuracy, and customer satisfaction.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4 text-white">Company</h3>
+              <ul className="space-y-2">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/about">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/careers">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/contact">
                     Contact
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-6 text-xl text-white text-glow-md">Services</h3>
-              <ul className="space-y-4">
+              <h3 className="font-bold mb-4 text-white">Services</h3>
+              <ul className="space-y-2">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/services">
                     Claims Verification
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/services">
                     Expedited Processing
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-blue-200 hover:text-white text-base hover:text-glow-sm transition-all duration-300"
-                  >
+                  <Link className="text-blue-100 hover:text-white text-sm" href="/services">
                     Compliance Management
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-6 text-xl text-white text-glow-md">Contact</h3>
-              <ul className="space-y-4">
-                <li className="text-blue-200 text-base">123 Business Avenue, Suite 500</li>
-                <li className="text-blue-200 text-base">Chicago, IL 60601</li>
-                <li className="text-blue-200 text-base">info@trueclaim.com</li>
-                <li className="text-blue-200 text-base">+1 (800) 555-1234</li>
+              <h3 className="font-bold mb-4 text-white">Contact</h3>
+              <ul className="space-y-2">
+                <li className="text-blue-100 text-sm">123 Business Avenue, Suite 500</li>
+                <li className="text-blue-100 text-sm">Chicago, IL 60601</li>
+                <li className="text-blue-100 text-sm">info@trueclaim.com</li>
+                <li className="text-blue-100 text-sm">+1 (800) 555-1234</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-blue-300 text-glow-sm">© 2024 TrueClaim. All rights reserved.</p>
-            <nav className="flex gap-8 mt-4 md:mt-0">
-              <Link
-                href="#"
-                className="text-sm hover:underline text-blue-300 hover:text-white hover:text-glow-sm transition-all duration-300"
-              >
+          <div className="border-t border-blue-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-xs text-blue-100">© 2024 TrueClaim. All rights reserved.</p>
+            <nav className="flex gap-6 mt-4 md:mt-0">
+              <Link className="text-xs hover:underline text-blue-100" href="#">
                 Terms of Service
               </Link>
-              <Link
-                href="#"
-                className="text-sm hover:underline text-blue-300 hover:text-white hover:text-glow-sm transition-all duration-300"
-              >
+              <Link className="text-xs hover:underline text-blue-100" href="#">
                 Privacy Policy
               </Link>
-              <Link
-                href="#"
-                className="text-sm hover:underline text-blue-300 hover:text-white hover:text-glow-sm transition-all duration-300"
-              >
+              <Link className="text-xs hover:underline text-blue-100" href="#">
                 Cookie Policy
               </Link>
             </nav>

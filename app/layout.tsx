@@ -1,6 +1,7 @@
 import "@/app/globals.css"
 import { Inter, Montserrat } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthProvider } from "@/contexts/auth-context"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" })
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light">
-          {children}
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>
